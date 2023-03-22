@@ -40,6 +40,7 @@ public class Servidor {
        Socket cliente = servidor.accept();
        System.out.println("Nova conexão com o cliente " +   
          cliente.getInetAddress().getHostAddress()
+         
        );
        
        // adiciona saida do cliente à lista

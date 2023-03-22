@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -25,7 +23,12 @@ public class Recebedor implements Runnable {
      // recebe msgs do servidor e imprime na tela
      Scanner s = new Scanner(this.servidor);
      while (s.hasNextLine()) {
-       System.out.println(s.nextLine());
+        String mensagem = s.nextLine().split(" ")[1].replace("/", "");
+        if (mensagem != s.nextLine()) {
+            System.out.println(mensagem);
+            System.out.println(s.nextLine()); 
+        }
+       
      }
    }
  }

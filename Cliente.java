@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -16,9 +17,10 @@ public class Cliente {
    public static void main(String[] args) 
          throws UnknownHostException, IOException {
      // dispara cliente
-     new Cliente("10.0.0.25", 12345).executa();
+     new Cliente("127.0.0.1", 12345).executa();
+     
    }
-   
+
    private String host;
    private int porta;
    
@@ -46,4 +48,20 @@ public class Cliente {
      teclado.close();
      cliente.close();    
    }
+
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
+  public int getPorta() {
+    return porta;
+  }
+
+  public void setPorta(int porta) {
+    this.porta = porta;
+  }
  }
