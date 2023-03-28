@@ -44,9 +44,14 @@ public class Servidor {
    }
  
    public void distribuiMensagem(String msg) {
-     // envia msg para todo mundo
-     for (PrintStream cliente : this.clientes) {
-       cliente.println(msg);
-     }
-   }
- }
+    // envia msg para todo mundo, exceto o servidor
+    for (PrintStream cliente : this.clientes) {
+        if (cliente != System.out) {
+            cliente.println(msg);
+        }
+    }
+}
+}
+
+
+
