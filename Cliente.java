@@ -13,7 +13,7 @@ public class Cliente {
      System.out.println("Digite seu nome: ");
      String nome = input.nextLine();
 
-     System.out.println("Digite seu IP: ");
+     System.out.println("Digite o IP do servidor: ");
      String ipe = input.nextLine();
 
 
