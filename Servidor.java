@@ -13,7 +13,7 @@ public class Servidor {
    }
    
    private int porta;
-   private List<PrintStream> clientes;
+   private List<Socket> clientes;
    
    public Servidor (int porta) {
      this.porta = porta;
@@ -33,22 +33,27 @@ public class Servidor {
        );
        
        // adiciona saida do cliente à lista
-       PrintStream ps = new PrintStream(cliente.getOutputStream());
-       this.clientes.add(ps);
+       this.clientes.add(cliente);
        
        // cria tratador de cliente numa nova thread
-       TrataCliente tc = new TrataCliente(cliente.getInputStream(), this);
+       TrataCliente tc = new TrataCliente(cliente, this);
        new Thread(tc).start();
      }
  
    }
  
-   public void distribuiMensagem(String msg) {
+   public void distribuiMensagem(String msg, String clienteNaoEnvia) {
     // envia msg para todo mundo, exceto o servidor
-    for (PrintStream cliente : this.clientes) {
-        if (cliente != System.out) {
-            cliente.println(msg);
+    for (Socket cliente : this.clientes) {
+        if (!cliente.getInetAddress().getHostAddress().equals(clienteNaoEnvia)) {
+          try{
+            PrintStream mandar = new PrintStream(cliente.getOutputStream());
+            mandar.println(msg);
+          }
+          catch(Exception e){}
+
         }
+
     }
 }
 }
