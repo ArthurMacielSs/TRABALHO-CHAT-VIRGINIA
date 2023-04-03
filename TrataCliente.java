@@ -3,7 +3,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 import java.net.Socket;
 
-public class TrataCliente implements Runnable {
+public class TrataCliente implements Runnable { 
  
    private InputStream cliente;
    private Servidor servidor;

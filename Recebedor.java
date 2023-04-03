@@ -1,6 +1,6 @@
 
 import java.io.InputStream;
-import java.util.Scanner;
+import java.util.Scanner; 
 
 public class Recebedor implements Runnable {
  
