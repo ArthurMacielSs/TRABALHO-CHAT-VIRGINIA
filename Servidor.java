@@ -13,10 +13,6 @@ import javax.swing.JTextField;
 
 public class Servidor {
 
-    JFrame tFrame;
-    JTextField text;
-    JLabel title;
-
     public static void main(String[] args) throws IOException {
       // inicia o servidor
       new Servidor(12345).executa();
@@ -33,35 +29,17 @@ public class Servidor {
     
     public void executa () throws IOException {
 
-      JFrame tFrame = new JFrame();
-      tFrame.setSize(300, 300);
-      tFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      tFrame.setTitle("Servidor");
-      tFrame.setLocationRelativeTo(null);
-      tFrame.setLayout(null);
-        
-      tFrame.setVisible(true);
-
       ServerSocket servidor = new ServerSocket(this.porta);
-      
-      text = new JTextField("Porta 12345 aberta!");
-      text.setBounds(10, 10, 150, 35);
-      text.setFont(new Font ("Arial", Font.PLAIN, 25));
-
-      JOptionPane.showMessageDialog(null, text.getText(), "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-      
+      System.out.println("Porta 12345 aberta!");
 
       while (true) {
         // aceita um cliente
         Socket cliente = servidor.accept();
-        title = new JLabel("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
-        title.setFont(new Font("Arial", Font.BOLD, 20));
-        title.setBounds(10, 10, 400, 100);
-        
-        JOptionPane.showMessageDialog(null, title.getText(), "Conexão", JOptionPane.INFORMATION_MESSAGE);
-
+        System.out.println("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
+      
         // adiciona saida do cliente à lista
         this.clientes.add(cliente);
+        
         
         // cria tratador de cliente numa nova thread
         TrataCliente tc = new TrataCliente(cliente, this);
