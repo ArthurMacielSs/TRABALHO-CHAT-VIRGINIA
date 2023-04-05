@@ -36,7 +36,7 @@ public class Cliente implements Runnable {
 
         try {
 
-            //aaaa
+            
             cliente = new Socket(this.host, this.porta);
             infoC.setText("O cliente se conectou ao servidor! \n");
 

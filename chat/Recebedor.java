@@ -17,7 +17,7 @@ public class Recebedor implements Runnable { //cria a classe recebedor (de mensa
     public void run() { //metodo run que roda a nossa thread 
         // recebe msgs do servidor e imprime na tela
         Scanner s = new Scanner(this.servidor);
-//cria uma variavel s do tipo scanner e a inicializa, passando como parametro o atributo servidor do objeto classe 
+        //cria uma variavel s do tipo scanner e a inicializa, passando como parametro o atributo servidor do objeto classe 
         //Scanner é uma variavel que administra a entrada de string 
         while (s.hasNextLine()) {
             String[] message = s.nextLine().split("//");
