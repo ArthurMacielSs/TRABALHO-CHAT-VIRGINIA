@@ -1,8 +1,6 @@
-O nosso  grupo rodou o codigo,porém estamos com o problema de repetir a mensagem para o proprio "Cliente".
-Tentamos inplementar uma funçãoque compara o IP do usuario a partir da propria saida, porém não deu certo 
-e estamos buscando uma solução adequada. Uma outra parte do grupo
-já foi pensando e planejando como implementar a interface grafica.
+Projeto em java feito para a matéria de Técnicas de programação do Colégio Técnico da UFMG (COLTEC) usando, java e sockets, nesse trabalho duas pessoas conversam entre si por meio da tecnologia webSockets. 
 
+Participantes:
 -Thales Morais/
 -Alisson Horta/
 -Arthur Maciel/
